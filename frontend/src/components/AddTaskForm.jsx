@@ -2,21 +2,20 @@ import axios from "axios"
 import { useState } from "react"
 
 // eslint-disable-next-line react/prop-types
-const AddTaskForm = ({setShowAddTaskForm}) => {
+const AddTaskForm = ({ setShowAddTaskForm }) => {
 	const [task, setTask] = useState({
 		name: "",
 		description: "",
-	} )
-	
+	})
+
 	const handleChange = (e) => {
 		setTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
 	}
 
-	const handleSubmit = async ( e ) =>
-	{
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
-			await axios.post( "http://localhost:3000/add-task", task )
+			await axios.post("https://app-taskapp-backend-ayesha.azurewebsites.net/add-task", task)
 			window.location.href = "/"
 		} catch (error) {
 			console.error(error)

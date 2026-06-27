@@ -12,7 +12,7 @@ const TaskList = ({ setShowEditTaskForm, filter, setId }) => {
 
 	const fetchAllTasks = async () => {
 		try {
-			const res = await axios.get("http://localhost:3000/get-tasks")
+			const res = await axios.get("https://app-taskapp-backend-ayesha.azurewebsites.net/get-tasks")
 			setTasks(res.data)
 		} catch (error) {
 			console.error(error)
@@ -49,19 +49,17 @@ const TaskList = ({ setShowEditTaskForm, filter, setId }) => {
 			{filteredTasks.map((task) => (
 				<div
 					key={task.id}
-					className={`p-4 rounded-lg border text-justify ${
-						task.status === "Completed" ? "bg-gray-50" : "bg-white"
-					}`}
+					className={`p-4 rounded-lg border text-justify ${task.status === "Completed" ? "bg-gray-50" : "bg-white"
+						}`}
 				>
 					<div className="flex items-start justify-between">
 						<div className="flex items-start gap-4">
 							<button
 								onClick={() => toggleComplete(task.id)}
-								className={`mt-1 w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-									task.status === "Completed"
-										? "bg-green-500 border-green-500"
-										: "border-gray-300"
-								}`}
+								className={`mt-1 w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${task.status === "Completed"
+									? "bg-green-500 border-green-500"
+									: "border-gray-300"
+									}`}
 							>
 								{task.status === "Completed" && (
 									<Check
@@ -72,11 +70,10 @@ const TaskList = ({ setShowEditTaskForm, filter, setId }) => {
 							</button>
 							<div>
 								<h3
-									className={`font-medium ${
-										task.status === "Completed"
-											? "text-gray-500 line-through"
-											: "text-gray-800"
-									}`}
+									className={`font-medium ${task.status === "Completed"
+										? "text-gray-500 line-through"
+										: "text-gray-800"
+										}`}
 								>
 									{task.name}
 								</h3>

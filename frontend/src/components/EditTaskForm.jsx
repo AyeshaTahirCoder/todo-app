@@ -12,7 +12,7 @@ const AddTaskForm = ({ setShowEditTaskForm, id }) => {
 		const fetchTask = async () => {
 			try {
 				const res = await axios.get(
-					`http://localhost:3000/get-task/${id}`
+					`https://app-taskapp-backend-ayesha.azurewebsites.net/get-task/${id}`
 				)
 				setTask(res.data)
 			} catch (error) {
@@ -26,10 +26,9 @@ const AddTaskForm = ({ setShowEditTaskForm, id }) => {
 		setTask((prev) => ({ ...prev, [e.target.name]: e.target.value }))
 	}
 
-	const handleUpdate = async () =>
-	{
+	const handleUpdate = async () => {
 		try {
-			axios.put( `http://localhost:3000/update-task/${ id }`, task )
+			axios.put(`http://localhost:3000/update-task/${id}`, task)
 		} catch (error) {
 			console.error(error)
 		}
