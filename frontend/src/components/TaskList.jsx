@@ -21,7 +21,7 @@ const TaskList = ({ setShowEditTaskForm, filter, setId }) => {
 
 	const toggleComplete = async (id) => {
 		try {
-			await axios.put(`http://localhost:3000/complete-task/${id}`)
+			await axios.put(`https://app-taskapp-backend-ayesha.azurewebsites.net/complete-task/${id}`)
 			window.location.reload()
 		} catch (error) {
 			console.error(error)
@@ -30,7 +30,7 @@ const TaskList = ({ setShowEditTaskForm, filter, setId }) => {
 
 	const deleteTask = async (id) => {
 		try {
-			await axios.delete(`http://localhost:3000/delete-task/${id}`)
+			await axios.delete(`https://app-taskapp-backend-ayesha.azurewebsites.net/delete-task/${id}`)
 			window.location.reload()
 		} catch (error) {
 			console.error(error)

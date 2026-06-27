@@ -28,7 +28,7 @@ const AddTaskForm = ({ setShowEditTaskForm, id }) => {
 
 	const handleUpdate = async () => {
 		try {
-			axios.put(`http://localhost:3000/update-task/${id}`, task)
+			axios.put(`https://app-taskapp-backend-ayesha.azurewebsites.net/update-task/${id}`, task)
 		} catch (error) {
 			console.error(error)
 		}
